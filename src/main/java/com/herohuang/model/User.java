@@ -6,27 +6,28 @@ import java.io.Serializable;
  * Created by acheron on 24/06/2017.
  */
 public class User implements Serializable {
-    private String yishenid;
-    private String yishenxm;
+    private String userId;
+    private String userName;
 
-    public User(String yishenid, String yishenxm) {
-        this.yishenid = yishenid;
-        this.yishenxm = yishenxm;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getYishenid() {
-        return yishenid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setYishenid(String yishenid) {
-        this.yishenid = yishenid;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getYishenxm() {
-        return yishenxm;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setYishenxm(String yishenxm) {
-        this.yishenxm = yishenxm;
+    public User(String userId, String userName) {
+
+        this.userId = userId;
+        this.userName = userName;
     }
 }

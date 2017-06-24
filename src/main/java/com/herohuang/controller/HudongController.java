@@ -1,10 +1,10 @@
 package com.herohuang.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.herohuang.model.User;
-import com.herohuang.model.Uploader;
-import com.herohuang.model.Room;
 import com.herohuang.model.Message;
+import com.herohuang.model.Room;
+import com.herohuang.model.Uploader;
+import com.herohuang.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Create by Acheron 2016-10-18
@@ -32,20 +30,19 @@ public class HudongController {
      */
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String chat(Model model) {
-        List<Room> keshiList = new ArrayList<Room>();
-        Room room1 = new Room("123", "科室1");
-        Room room2 = new Room("124", "科室2");
-        keshiList.add(room1);
-        keshiList.add(room2);
-        model.addAttribute("keshiList", keshiList);
+        // Mock Rooms
+        List<Room> rooms = new ArrayList<Room>();
+        Room room1 = new Room("1", "ROOM1");
+        Room room2 = new Room("2", "ROOM2");
+        rooms.add(room1);
+        rooms.add(room2);
+        model.addAttribute("rooms", rooms);
 
-        User yishengxx = new User("123", "张三");
-        model.addAttribute("yishengxx", yishengxx);
+        // Mock Users
+        User user = new User("123", "张三");
+        model.addAttribute("user", user);
 
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("yiyuanid", "1234");
-        model.addAttribute("jcsjYiyuanxx", "");
-        return "chat";
+        return "index";
     }
 
 

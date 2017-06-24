@@ -23,8 +23,8 @@
         <div class="hudong_container">
             <div class="keshi_list" currentKeshiid="">
                 <ul>
-                    <c:forEach var="keshi" items="${keshiList}">
-                        <li><a href="javascript:void(0);" keshiid="${keshi.bianma}" class="">${keshi.mingcheng}&nbsp;<span class="noread"></span></a></li>
+                    <c:forEach var="room" items="${rooms}">
+                        <li><a href="javascript:void(0);" keshiid="${room.bianma}" class="">${room.mingcheng}&nbsp;<span class="noread"></span></a></li>
                     </c:forEach>
                 </ul>
             </div>
@@ -46,7 +46,7 @@
                 <div class="send-div">
                     <span class="shotcuttext">(快捷键：Ctrl+Enter)</span>
                     <button id="send" type="button">发 送</button>
-                    <input id="nickname" style="display: none;" value="${yishengxx.yishenid}" yishengxm="${yishengxx.yishenxm}" type="text" />
+                    <input id="nickname" style="display: none;" value="${user.userId}" yishengxm="${user.userName}" type="text" />
                 </div>
             </div>
         </div>
@@ -150,7 +150,7 @@
     }
 
 
-    var currentYishengid = "${yishengxx.yishenid}";
+    var currentYishengid = "${user.userId}";
     //点击科室加载聊天信息，并将当前科室未读数初始化
     $(".keshi_list ul li a").click(function () {
         $(this).parents("ul").find("a").attr("class", "");
