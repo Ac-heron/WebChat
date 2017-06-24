@@ -8,6 +8,7 @@ import com.herohuang.model.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,27 +19,19 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 医生互动
- * 类描述：【医生互动】
- * 创建人：herohuang
- * 创建时间：2016/10/14 13:54
- * 修改人：herohuang
- * 修改时间：2016/10/14 13:54
- * 修改备注：【】
+ * Create by Acheron 2016-10-18
  */
 @Controller
-@RequestMapping("/hudong")
 public class HudongController {
 
     /**
-     * 医生互动界面
+     * Index of the chat page
      *
-     * @param request 请求
-     * @param model   存储
-     * @return chat页面
+     * @param model
+     * @return
      */
-    @RequestMapping(value = "chat.do")
-    public String chat(HttpServletRequest request, Model model) {
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String chat(Model model) {
         List<Room> keshiList = new ArrayList<Room>();
         Room room1 = new Room("123", "科室1");
         Room room2 = new Room("124", "科室2");
@@ -57,10 +50,10 @@ public class HudongController {
 
 
     /**
-     * 获得某科室下的聊天信息
+     * Get messages of the room
      *
-     * @param keshiid 科室id
-     * @return 聊天信息
+     * @param keshiid
+     * @return
      */
     @RequestMapping(value = "liaotianxx.do")
     @ResponseBody

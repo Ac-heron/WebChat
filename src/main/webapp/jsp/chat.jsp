@@ -9,7 +9,7 @@
 <head>
     <base href="<%=basePath%>">
     <meta charset="utf-8">
-    <title>医生互动</title>
+    <title>Index</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" type="text/css" href="<%=basePath%>css/admin/style.css"></link>
