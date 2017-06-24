@@ -160,19 +160,19 @@
         var keshiid = $(this).attr("keshiid");
         $(".keshi_list").attr("currentKeshiid", keshiid);
         $('#message-list').html("");
-        $.get("hudong/liaotianxx.do?keshiid=" + keshiid, function (data) {
+        $.get("history?roomId=" + keshiid, function (data) {
             if (!$.isEmptyObject(data)) {
                 $.each(data, function (i, message) {
                     var isself = false;
-                    if (currentYishengid == message.yishengid) {
+                    if (currentYishengid == message.userId) {
                         isself = true;
                     }
                     var messageItem = '<li class="am-comment ' + (isself ? 'mes-self' : 'mes-other') + '">' +
                             '<div class="am-comment-main">' +
                             '<div class="am-comment-hd">' +
-                            '<span  class="comment-author">' + message.yishengxm  + '</span><time class="comment-date">' + formateDate(message.xiaoxisj) + '</time>' +
+                            '<span  class="comment-author">' + message.useName  + '</span><time class="comment-date">' + formateDate(message.sendDate) + '</time>' +
                             '</div>' +
-                            '<div onclick="largerImg(this)" class="am-comment-bd">' + message.xiaoxixx + '</div>' +
+                            '<div onclick="largerImg(this)" class="am-comment-bd">' + message.content + '</div>' +
                             '</div></li>';
                     $(messageItem).appendTo('#message-list');
                     $(".chat-content-container").scrollTop($(".chat-content-container")[0].scrollHeight);

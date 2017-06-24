@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,7 +40,7 @@ public class HudongController {
         model.addAttribute("rooms", rooms);
 
         // Mock Users
-        User user = new User("123", "张三");
+        User user = new User("1", "张三");
         model.addAttribute("user", user);
 
         return "index";
@@ -49,21 +50,17 @@ public class HudongController {
     /**
      * Get messages of the room
      *
-     * @param keshiid
+     * @param roomId
      * @return
      */
-    @RequestMapping(value = "liaotianxx.do")
+    @RequestMapping(value = "history")
     @ResponseBody
-    public List<Message> liaotianxx(String keshiid) {
+    public List<Message> getHistoryMessage(String roomId) {
         List<Message> list = new ArrayList<Message>();
-        Message x1 = new Message();
-        x1.setKeshiid("123");
-        x1.setXiaoxixx("哈哈只");
-        Message x2 = new Message();
-        x1.setKeshiid("124");
-        x1.setXiaoxixx("哈哈只");
-        list.add(x1);
-        list.add(x2);
+        Message m1 = new Message(roomId,"1","张三","Hello world",new Date());
+        Message m2 = new Message(roomId,"2","李四","Nice to meet you",new Date());
+        list.add(m1);
+        list.add(m2);
         return list;
     }
 

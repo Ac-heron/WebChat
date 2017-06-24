@@ -1,73 +1,71 @@
 package com.herohuang.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 医生互动 互动信息
+ * Message
  */
 public class Message implements Serializable {
 
+    private String roomId;
 
-    private BigDecimal liushuihao;
+    private String userId;
 
-    private String keshiid;
+    private String userName;
 
-    private String yishengid;
-    
-    private String yishengxm;
+    private String content;
 
-    private String xiaoxixx;
+    private Date sendDate;
 
-    private Date xiaoxisj;
-
-    public String getYishengxm() {
-        return yishengxm;
+    public Message(String roomId, String userId, String userName, String content, Date sendDate) {
+        this.roomId = roomId;
+        this.userId = userId;
+        this.userName = userName;
+        this.content = content;
+        this.sendDate = sendDate;
     }
 
-    public void setYishengxm(String yishengxm) {
-        this.yishengxm = yishengxm;
+    public String getRoomId() {
+        return roomId;
     }
 
-    public BigDecimal getLiushuihao() {
-        return liushuihao;
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
-    public void setLiushuihao(BigDecimal liushuihao) {
-        this.liushuihao = liushuihao;
+    public String getUserId() {
+        return userId;
     }
 
-
-    public String getKeshiid() {
-        return keshiid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setKeshiid(String keshiid) {
-        this.keshiid = keshiid;
+    public String getUserName() {
+        return userName;
     }
 
-    public String getYishengid() {
-        return yishengid;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
-    public void setYishengid(String yishengid) {
-        this.yishengid = yishengid;
+    public String getContent() {
+        return content;
     }
 
-    public String getXiaoxixx() {
-        return xiaoxixx;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public void setXiaoxixx(String xiaoxixx) {
-        this.xiaoxixx = xiaoxixx;
+    public Message() {
     }
 
-    public Date getXiaoxisj() {
-        return xiaoxisj;
+    public Date getSendDate() {
+        return sendDate;
     }
 
-    public void setXiaoxisj(Date xiaoxisj) {
-        this.xiaoxisj = xiaoxisj;
+    public void setSendDate(Date sendDate) {
+        this.sendDate = sendDate;
     }
 }

@@ -13,6 +13,7 @@ import javax.websocket.server.ServerEndpoint;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.logging.Logger;
 
 /**
  * 医生互动服务器
@@ -23,6 +24,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 //@ServerEndpoint(value = "/hudongsocket",configurator = SpringConfigurator.class)
 @ServerEndpoint(value = "/hudongsocket")
 public class HudongEndpoint {
+
+    private Logger logger = Logger.getLogger("endpoint-logger");
 
     //与客户端的会话链接
     private Session session;
@@ -47,13 +50,14 @@ public class HudongEndpoint {
     public void getMessage(String message, Session session) {
         JSONObject jsonObject = JSONObject.parseObject(message);
 
-        Message liaotianxx = new Message();
-        liaotianxx.setKeshiid(jsonObject.getString("keshiid"));
-        liaotianxx.setYishengid(jsonObject.getString("yishengid"));
-        liaotianxx.setYishengxm(jsonObject.getString("yishengxm"));
-        liaotianxx.setXiaoxisj(new Date());
-        liaotianxx.setXiaoxixx(jsonObject.getString("content"));
-        System.out.println("save ...............");
+        logger.info("Start insert message....");
+        Message m = new Message();
+        m.setRoomId(jsonObject.getString("keshiid"));
+        m.setUserId(jsonObject.getString("yishengid"));
+        m.setUserName(jsonObject.getString("yishengxm"));
+        m.setSendDate(new Date());
+        m.setContent(jsonObject.getString("content"));
+        logger.info("End insert message....");
 
         jsonObject.put("date", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
         for (Session openSession : session.getOpenSessions()) {
