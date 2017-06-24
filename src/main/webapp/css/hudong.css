@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hudong_container {
+    width: 100%;
+    margin: 0 auto;
+
+}
+
+.keshi_list {
+    width: 100%;
+}
+
+.chat-left {
+
+}
+
+.keshi_list ul, .keshi_list ul li {
+    list-style-type: none;
+}
+
+.keshi_list ul {
+    float: left;
+    padding: 0;
+}
+
+.keshi_list ul li {
+    float: left;
+    margin: 1px;
+}
+
+.keshi_list ul li a {
+    display: block;
+    /*width: 100px;*/
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    background: #eaeaea;
+    text-decoration: none;
+    text-align: center;
+    color: #333;
+}
+
+.keshi_list ul li a:hover {
+    background: #7F9DB9;
+    color: #fff3f3;
+}
+
+.keshi_list ul a.active {
+    background: #7F9DB9;
+    color: #fff3f3;
+}
+
+.keshi_list ul li a .noread {
+    color: #ff0000;
+}
+
+.chat-content {
+    clear: left;
+    background-color: #EEEEEE;
+}
+
+.chat-content, .message-input {
+    width: 100%;
+}
+
+.chat-content-container {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid silver;
+    padding: 20px;
+}
+
+.am-comment{
+    width:100%;
+    float: left;
+}
+.mes-self, .mes-other {
+    margin-bottom: 5px;
+}
+
+.mes-self {
+    /*text-align: right;*/
+}
+
+.comment-author {
+    color: #369;
+    font-family: bold;
+}
+
+.comment-date {
+    color: #999;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.am-comment-bd {
+    /*background-color: #B2E281;*/
+    /*display: inline;*/
+    /*float: left;*/
+    /*padding:15px;*/
+    /*-webkit-border-radius:15px;*/
+    /*-moz-border-radius:15px;*/
+    /*border-radius:15px;*/
+}
+
+.send-div {
+    width: 100%;
+    text-align: right;
+}
+
+.send-div .shotcuttext {
+    font-size: 12px;
+    color: #888;
+}
+
+.send-div button {
+    background: #68b9d7;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #68b9d7;
+    border-radius: 2px;
+}
+
+.send-div button:hover {
+    cursor: pointer;
+    background-color: #00adee;
+}
+
+/*图片放大*/
+.round_shade_box {
+    position: absolute;
+    margin: 0 auto;
+    z-index: 1003;
+    border: 1px solid #cccccc;
+}
+
+.round_shade_center {
+    font-size: 14px;
+    margin: 0 12px 0 10px;
+    padding: 10px;
+}
+
+.round_box_close {
+    padding: 2px 5px;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid #cccccc;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: #000000;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    position: absolute;
+    right: -5px;
+    top: -5px;
+}
+
+
+.mask {
+    position: absolute; top: 0px; filter: alpha(opacity=60); background-color: #777;
+    z-index: 1002; left: 0px;
+    opacity:0.5; -moz-opacity:0.5;
+}  
