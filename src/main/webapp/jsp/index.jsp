@@ -1,20 +1,15 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    String path = request.getContextPath();
-    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-%>
 <!DOCTYPE html>
 <html>
 <head>
-    <base href="<%=basePath%>">
     <meta charset="utf-8">
     <title>Index</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/admin/style.css"></link>
-    <link rel="stylesheet" type="text/css" href="<%=basePath%>css/hudong.css"></link>
-    <link href="<%=basePath%>js/umeditor/themes/default/css/umeditor.min.css" rel="stylesheet"></link>
+    <link rel="stylesheet" type="text/css" href="/css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="/css/hudong.css"></link>
+    <link href="/js/umeditor/themes/default/css/umeditor.min.css" rel="stylesheet"></link>
 </head>
 <body onload="overtrigger()">
 
@@ -24,7 +19,7 @@
             <div class="keshi_list" currentKeshiid="">
                 <ul>
                     <c:forEach var="room" items="${rooms}">
-                        <li><a href="javascript:void(0);" keshiid="${room.bianma}" class="">${room.mingcheng}&nbsp;<span class="noread"></span></a></li>
+                        <li><a href="javascript:void(0);" keshiid="${room.code}" class="">${room.name}&nbsp;<span class="noread"></span></a></li>
                     </c:forEach>
                 </ul>
             </div>
@@ -52,10 +47,10 @@
         </div>
     </div>
 
-<script src="<%=basePath%>js/jquery/jquery.min.js"></script>
-<script charset="utf-8" src="<%=basePath%>js/umeditor/umeditor.config.js"></script>
-<script charset="utf-8" src="<%=basePath%>js/umeditor/umeditor.min.js"></script>
-<script src="<%=basePath%>js/umeditor/lang/zh-cn/zh-cn.js"></script>
+<script src="/js/jquery/jquery.min.js"></script>
+<script charset="utf-8" src="/js/umeditor/umeditor.config.js"></script>
+<script charset="utf-8" src="/js/umeditor/umeditor.min.js"></script>
+<script src="/js/umeditor/lang/zh-cn/zh-cn.js"></script>
 
 
 

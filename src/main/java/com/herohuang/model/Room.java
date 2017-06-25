@@ -7,28 +7,30 @@ import java.io.Serializable;
  */
 public class Room implements Serializable {
 
-    private String bianma;
+    private String code;
 
-    private String mingcheng;
+    private String name;
 
-    public Room(String bianma, String mingcheng) {
-        this.bianma = bianma;
-        this.mingcheng = mingcheng;
+    public String getCode() {
+        return code;
     }
 
-    public String getBianma() {
-        return bianma;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public void setBianma(String bianma) {
-        this.bianma = bianma;
+    public String getName() {
+        return name;
     }
 
-    public String getMingcheng() {
-        return mingcheng;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setMingcheng(String mingcheng) {
-        this.mingcheng = mingcheng;
+    public Room(String code, String name) {
+
+        this.code = code;
+        this.name = name;
     }
 }
+

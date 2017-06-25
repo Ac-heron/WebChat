@@ -53,7 +53,7 @@ public class HudongController {
      * @param roomId
      * @return
      */
-    @RequestMapping(value = "history")
+    @RequestMapping(value = "history",method = RequestMethod.GET)
     @ResponseBody
     public List<Message> getHistoryMessage(String roomId) {
         List<Message> list = new ArrayList<Message>();
