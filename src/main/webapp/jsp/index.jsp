@@ -170,7 +170,7 @@
                     var messageItem = '<li class="am-comment ' + (isself ? 'mes-self' : 'mes-other') + '">' +
                             '<div class="am-comment-main">' +
                             '<div class="am-comment-hd">' +
-                            '<span  class="comment-author">' + message.useName  + '</span><time class="comment-date">' + formateDate(message.sendDate) + '</time>' +
+                            '<span  class="comment-author">' + message.userName  + '</span><time class="comment-date">' + formateDate(message.sendDate) + '</time>' +
                             '</div>' +
                             '<div onclick="largerImg(this)" class="am-comment-bd">' + message.content + '</div>' +
                             '</div></li>';
