@@ -16,10 +16,10 @@
     <div class="white-module">
 
         <div class="hudong_container">
-            <div class="keshi_list" currentKeshiid="">
+            <div class="room_list" currentRoomId="">
                 <ul>
                     <c:forEach var="room" items="${rooms}">
-                        <li><a href="javascript:void(0);" keshiid="${room.code}" class="">${room.name}&nbsp;<span class="noread"></span></a></li>
+                        <li><a href="javascript:void(0);" roomId="${room.code}" class="">${room.name}&nbsp;<span class="noread"></span></a></li>
                     </c:forEach>
                 </ul>
             </div>
@@ -111,9 +111,9 @@
         } else {
             socket.send(JSON.stringify({
                 content: um.getContent(),
-                yishengid: $('#nickname').val(),
-                yishengxm: $('#nickname').attr("yishengxm"),
-                keshiid: $(".keshi_list").attr("currentKeshiid")
+                userId: $('#nickname').val(),
+                userName: $('#nickname').attr("yishengxm"),
+                roomId: $(".room_list").attr("currentRoomId")
             }));
             um.setContent('');
             um.focus();
@@ -123,17 +123,17 @@
     //添加socket返回的数据加入到对应的科室里
     function addMessage(message) {
         message = JSON.parse(message);
-        if ($(".keshi_list").attr("currentKeshiid") == message.keshiid) {
+        if ($(".room_list").attr("currentRoomId") == message.roomId) {
             var messageItem = '<li class="am-comment ' + (message.isSelf ? 'mes-self' : 'mes-other') + '">' +
                     '<div class="am-comment-main">' +
                     '<div class="am-comment-meta">' +
-                    '<span  class="comment-author">' + message.yishengxm + '</span><time class="comment-date">' + message.date + '</time>' +
+                    '<span  class="comment-author">' + message.userName + '</span><time class="comment-date">' + message.date + '</time>' +
                     '</div>' +
                     '<div onclick="largerImg(this)" class="am-comment-bd">' + message.content + '</div>' +
                     '</div></li>';
             $(messageItem).appendTo('#message-list');
         } else {
-            $(".keshi_list ul li a[keshiid=" + message.keshiid + "]").children("span").html("【有新消息】");
+            $(".room_list ul li a[roomId=" + message.roomId + "]").children("span").html("【有新消息】");
         }
         // 把滚动条滚动到底部
         $(".chat-content-container").scrollTop($(".chat-content-container")[0].scrollHeight);
@@ -141,25 +141,25 @@
 
 
     function overtrigger() {
-        $(".keshi_list ul li a:first").trigger("click");
+        $(".room_list ul li a:first").trigger("click");
     }
 
 
-    var currentYishengid = "${user.userId}";
+    var currentUserId = "${user.userId}";
     //点击科室加载聊天信息，并将当前科室未读数初始化
-    $(".keshi_list ul li a").click(function () {
+    $(".room_list ul li a").click(function () {
         $(this).parents("ul").find("a").attr("class", "");
         $(this).attr("class", "active");
         $(this).children("span").html("");
 
-        var keshiid = $(this).attr("keshiid");
-        $(".keshi_list").attr("currentKeshiid", keshiid);
+        var roomId = $(this).attr("roomId");
+        $(".room_list").attr("currentRoomId", roomId);
         $('#message-list').html("");
-        $.get("history?roomId=" + keshiid, function (data) {
+        $.get("history?roomId=" + roomId, function (data) {
             if (!$.isEmptyObject(data)) {
                 $.each(data, function (i, message) {
                     var isself = false;
-                    if (currentYishengid == message.userId) {
+                    if (currentUserId == message.userId) {
                         isself = true;
                     }
                     var messageItem = '<li class="am-comment ' + (isself ? 'mes-self' : 'mes-other') + '">' +

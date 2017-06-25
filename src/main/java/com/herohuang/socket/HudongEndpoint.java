@@ -52,9 +52,9 @@ public class HudongEndpoint {
 
         logger.info("Start insert message....");
         Message m = new Message();
-        m.setRoomId(jsonObject.getString("keshiid"));
-        m.setUserId(jsonObject.getString("yishengid"));
-        m.setUserName(jsonObject.getString("yishengxm"));
+        m.setRoomId(jsonObject.getString("roomId"));
+        m.setUserId(jsonObject.getString("userId"));
+        m.setUserName(jsonObject.getString("userName"));
         m.setSendDate(new Date());
         m.setContent(jsonObject.getString("content"));
         logger.info("End insert message....");
